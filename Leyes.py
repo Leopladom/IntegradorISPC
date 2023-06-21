@@ -132,9 +132,9 @@ def preguntarOtra(objeto_leyes):
 
 # Crear la base de datos y las tablas
 
-with sqlite3.connect("Proyect") as P:
+with sqlite3.connect("IntegradorISPC\Proyect") as P:
     cursor = P.cursor()
-    cursor.execute("CREATE TABLE IF NOT EXISTS tabla1 (Nro INTEGER PRIMARY KEY AUTOINCREMENT, TipoDeNormativa VARCHAR(50), NumeroDeNormativa VARCHAR(50), Fecha VARCHAR(20), Descripcion VARCHAR(50))")
+    cursor.execute("CREATE TABLE IF NOT EXISTS tabla1 (Nro INTEGER PRIMARY KEY AUTOINCREMENT, TipoDeNormativa VARCHAR(50), NumeroDeNormativa VARCHAR(50), Fecha VARCHAR(20), Descripcion VARCHAR(550))")
     cursor.execute("CREATE TABLE IF NOT EXISTS tabla2 (Nro INTEGER PRIMARY KEY, Categoria VARCHAR(50), Jurisdiccion VARCHAR(50))")
     cursor.execute("CREATE TABLE IF NOT EXISTS tabla3 (Nro INTEGER PRIMARY KEY, OrganoLegislativo VARCHAR(50), PalabraClave VARCHAR(50))")
 
