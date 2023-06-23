@@ -64,13 +64,13 @@ class Mods:
             print("No se encontró ningún registro con el número especificado.")
             return
 
-        tipoNorma = input("Tipo de Normativa: ")
-        numNorma = input("Numero de Normativa: ")
+        #tipoNorma = input("Tipo de Normativa: ")
+        #numNorma = input("Numero de Normativa: ")
         fecha = input("Fecha: ")
-        desc = input("Descripcion: ")
+        #desc = input("Descripcion: ")
 
-        cursor.execute("UPDATE tabla1 SET TipoDeNormativa=?, NumeroDeNormativa=?, Fecha=?, Descripcion=? WHERE Nro=?",
-                       (tipoNorma, numNorma, fecha, desc, nro))
+        cursor.execute("UPDATE tabla1 SET Fecha=? WHERE Nro=?",
+                       (fecha, nro))
 
         cursor.execute("SELECT * FROM tabla2 WHERE Nro=?", (nro,))
         registro_tabla2 = cursor.fetchone()
@@ -132,7 +132,7 @@ def preguntarOtra(objeto_leyes):
 
 # Crear la base de datos y las tablas
 
-with sqlite3.connect("IntegradorISPC\Proyect") as P:
+with sqlite3.connect("Proyect") as P:
     cursor = P.cursor()
     cursor.execute("CREATE TABLE IF NOT EXISTS tabla1 (Nro INTEGER PRIMARY KEY AUTOINCREMENT, TipoDeNormativa VARCHAR(50), NumeroDeNormativa VARCHAR(50), Fecha VARCHAR(20), Descripcion VARCHAR(550))")
     cursor.execute("CREATE TABLE IF NOT EXISTS tabla2 (Nro INTEGER PRIMARY KEY, Categoria VARCHAR(50), Jurisdiccion VARCHAR(50))")
