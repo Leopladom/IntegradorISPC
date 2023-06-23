@@ -149,8 +149,8 @@ def preguntarOtra(objeto_leyes):
 
 with sqlite3.connect("Proyect.db") as P:
     cursor = P.cursor()
-    cursor.execute("CREATE TABLE IF NOT EXISTS Leyes (Nro INTEGER PRIMARY KEY AUTOINCREMENT, TipoDeNormativa VARCHAR(50), NumeroDeNormativa VARCHAR(50), Fecha VARCHAR(20), Descripcion VARCHAR(550))")
-    cursor.execute("CREATE TABLE IF NOT EXISTS Jurisdiccion (Nro INTEGER PRIMARY KEY, Categoria VARCHAR(50), Jurisdiccion VARCHAR(50))")
+    cursor.execute("CREATE TABLE IF NOT EXISTS Leyes (Nro INTEGER FOREIGN KEY AUTOINCREMENT, TipoDeNormativa VARCHAR(50), NumeroDeNormativa VARCHAR(50), Fecha VARCHAR(20), Descripcion VARCHAR(550))")
+    cursor.execute("CREATE TABLE IF NOT EXISTS Jurisdiccion (Nro INTEGER FOREIGN KEY, Categoria VARCHAR(50), Jurisdiccion VARCHAR(50))")
     cursor.execute("CREATE TABLE IF NOT EXISTS Identificadores (Nro INTEGER PRIMARY KEY, OrganoLegislativo VARCHAR(50), PalabraClave VARCHAR(50))")
 
     # Crear objeto Leyes
